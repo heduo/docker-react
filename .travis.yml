@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t heduo/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run heduo/docker-react npm run test -- --coverage
